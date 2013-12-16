@@ -110,9 +110,13 @@
   <ItemGroup>
     <Compile Include="GameScenes\GameOverScene\GameOverScene.cs" />
     <Compile Include="GameScenes\HelpScene\HelpScene.cs" />
+    <Compile Include="GameScenes\LoadScene\LoadScene.cs" />
     <Compile Include="GameScenes\Playscene\PlayScene.cs" />
+    <Compile Include="GameScenes\ScoreScene\ScoreScene.cs" />
+    <Compile Include="GameScenes\Startscene\Menu.cs" />
     <Compile Include="GameScenes\Startscene\StartScene.cs" />
     <Compile Include="Game\IState.cs" />
+    <Compile Include="HelperClass\Image.cs" />
     <Compile Include="Input\Input.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game\Program.cs" />

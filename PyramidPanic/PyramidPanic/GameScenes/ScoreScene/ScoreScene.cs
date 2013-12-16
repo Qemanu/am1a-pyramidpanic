@@ -11,13 +11,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class PlayScene : IState
+    public class ScoreScene : IState
     {
         // Fields van de Start-class
         private PyramidPanic game;
 
         // Constructor van de Start-class krijgt een object game van het type pyramid panic
-        public PlayScene(PyramidPanic game)
+        public ScoreScene(PyramidPanic game)
         {
             this.game = game;
         }
@@ -37,7 +37,17 @@ namespace PyramidPanic
         // Update methode, wordt normaal 60 maal per seconden aangeroepen.
         public void Update(GameTime gametime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.B))
+            if (Input.EdgeDetectKeyDown(Keys.NumPad6))
+            {
+                this.game.IState = this.game.StartScene;
+            }
+
+            if (Input.EdgeDetectKeyDown(Keys.NumPad4))
+            {
+                this.game.IState = this.game.HelpScene;
+            }
+
+            if (Input.EdgeDetectKeyDown(Keys.NumPad0))
             {
                 this.game.IState = this.game.StartScene;
             }
@@ -47,7 +57,7 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             // Achtergrondkleur van de gamescene
-            this.game.GraphicsDevice.Clear(Color.Purple);
+            this.game.GraphicsDevice.Clear(Color.Aqua);
         }
     }
 }
