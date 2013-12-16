@@ -120,6 +120,15 @@ namespace PyramidPanic
             }
             else if (this.quit.Rectangle.Intersects(Input.MouseRect()))
             {
+                if (Input.EdgeDetectMousePressLeft())
+                {
+                    this.game.IState = this.game.QuitScene;
+                }
+                this.ChangeButtonColorToNormal();
+                this.quit.Color = this.activeColor;
+            }
+            else if (this.quit.Rectangle.Intersects(Input.MouseRect()))
+            {
                 this.ChangeButtonColorToNormal();
                 this.quit.Color = this.activeColor;
             }
@@ -134,7 +143,7 @@ namespace PyramidPanic
                         // De Ternary operator:
                         // variabele = (vergelijking) ? waarde als waar : waarde als niet waar;
                         this.game.IState = (Input.EdgeDetectKeyDown(Keys.Enter))
-                                ? (IState)this.game.PlayScene : this.game.StartScene;
+                            ? (IState)this.game.PlayScene : this.game.StartScene;
                         this.start.Color = this.activeColor;
                         break;
                     case Buttons.Load:
@@ -151,6 +160,10 @@ namespace PyramidPanic
                         this.help.Color = this.activeColor;
                         break;
                     case Buttons.Quit:
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            this.game.IState = this.game.QuitScene;
+                        }
                         this.quit.Color = this.activeColor;
                         break;
                 }
